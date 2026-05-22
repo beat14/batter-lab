@@ -325,6 +325,41 @@ img, svg { display: block; max-width: 100%; }
   transform: scale(1.06) rotate(-3deg);
 }
 
+/* Crossfade between loose and packed product image — only while card is hovered.
+   Selectors are chained extra (.menu-card__art .menu-card__img--…) so they beat
+   the generic ".menu-card:hover .menu-card__art img" hover transform above. */
+.menu-card--swap .menu-card__art { perspective: 600px; }
+.menu-card--swap .menu-card__art .menu-card__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  transition: opacity .45s ease, transform .45s ease;
+  backface-visibility: hidden;
+}
+/* rest: only the loose image is visible, centered */
+.menu-card--swap .menu-card__art .menu-card__img--loose {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) rotate(0);
+}
+.menu-card--swap .menu-card__art .menu-card__img--packed {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.7) rotate(8deg);
+}
+/* hover: loose fades out, packed (lidded) fades in — stays centered */
+.menu-card--swap:hover .menu-card__art .menu-card__img--loose {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.7) rotate(-8deg);
+}
+.menu-card--swap:hover .menu-card__art .menu-card__img--packed {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.04) rotate(-2deg);
+}
+
 .menu-card__body h3 {
   font-family: "Fredoka", sans-serif;
   color: var(--brown);
