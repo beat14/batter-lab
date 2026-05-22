@@ -390,27 +390,20 @@ img, svg { display: block; max-width: 100%; }
   font-size: 14px;
 }
 
-/* badge logo */
-.badge {
-  width: 240px; height: 240px;
+/* product logo image in about section */
+.about__logo {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  display: block;
   margin: 0 auto;
-  border-radius: 50%;
-  background: var(--white);
-  border: 6px dashed var(--orange);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-family: "Fredoka", sans-serif;
-  color: var(--navy);
-  box-shadow: var(--shadow);
-  padding: 20px;
-  transform: rotate(-6deg);
+  transform: rotate(-4deg);
+  filter: drop-shadow(0 10px 20px rgba(140, 58, 26, .2));
+  transition: transform .4s ease;
 }
-.badge__top { font-size: 14px; letter-spacing: 4px; color: var(--orange-deep); }
-.badge__main { font-size: 36px; line-height: 1; font-weight: 700; }
-.badge__bottom { font-size: 12px; letter-spacing: 3px; margin-top: 10px; color: var(--brown); }
+.about__logo:hover {
+  transform: rotate(0) scale(1.03);
+}
 
 /* ---------- Order ---------- */
 .order {
